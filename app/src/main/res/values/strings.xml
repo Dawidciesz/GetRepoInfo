@@ -4,4 +4,5 @@
     <string name="author_s_name">author’s name</string>
     <string name="message">message</string>
     <string name="sha_value">SHA value</string>
+    <string name="get">GET</string>
 </resources>
