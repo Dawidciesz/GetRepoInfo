@@ -8,5 +8,27 @@
         android:id="@+id/fetchFragment"
         android:name="com.fiesta.getrepoinfo.ui.FetchFragment"
         android:label="fetch_fragment"
-        tools:layout="@layout/fetch_fragment" />
+        tools:layout="@layout/fetch_fragment" >
+        <action
+            android:id="@+id/action_fetchFragment_to_historyFragment"
+            app:destination="@id/historyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.fiesta.getrepoinfo.ui.HistoryFragment"
+        android:label="history_fragment"
+        tools:layout="@layout/history_fragment">
+        <action
+            android:id="@+id/action_historyFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.fiesta.getrepoinfo.ui.DetailsFragment"
+        android:label="details_fragment"
+        tools:layout="@layout/details_fragment" >
+        <argument
+            android:name="url"
+            app:argType="string" />
+    </fragment>
 </navigation>

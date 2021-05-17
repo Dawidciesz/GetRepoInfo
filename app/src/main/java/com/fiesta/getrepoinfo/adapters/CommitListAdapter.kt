@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.fiesta.getrepoinfo.data.Info
+import com.fiesta.getrepoinfo.data.RepoData
 import com.fiesta.getrepoinfo.databinding.CommitItemBinding
 
 class CommitListAdapter() : ListAdapter<Info, CommitListAdapter.CommitViewHolder>(DiffCallback()) {
@@ -24,7 +25,7 @@ class CommitListAdapter() : ListAdapter<Info, CommitListAdapter.CommitViewHolder
         fun bind(info: Info) {
             binding.apply {
                 author.text = info.commit.committer.name
-                message.text = info.commit.message
+                message.text = info.message
                 sha.text = info.sha
             }
         }

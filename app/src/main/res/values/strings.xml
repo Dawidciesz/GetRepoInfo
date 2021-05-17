@@ -5,4 +5,6 @@
     <string name="message">message</string>
     <string name="sha_value">SHA value</string>
     <string name="get">GET</string>
+    <string name="gitrepoinfo">GitRepoInfo</string>
+    <string name="hist">Hist</string>
 </resources>

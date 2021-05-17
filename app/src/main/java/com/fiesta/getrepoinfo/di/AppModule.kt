@@ -1,8 +1,11 @@
 package com.fiesta.detector.di
 
 import android.app.Application
+import android.content.Context
 import androidx.room.Room
 import com.fiesta.getrepoinfo.api.RepositoryApi
+import com.fiesta.getrepoinfo.data.RepoData
+import com.fiesta.getrepoinfo.data.RepoDataDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -28,30 +31,21 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideRestaurantApi(retrofit: Retrofit): RepositoryApi =
+    fun provideRepositorytApi(retrofit: Retrofit): RepositoryApi =
         retrofit.create(RepositoryApi::class.java)
+
+    @Provides
+    @Singleton
+    fun provideDatabase(app: Application) : RepoDataDatabase =
+        Room.databaseBuilder(app, RepoDataDatabase::class.java, "repo_database")
+            .build()
+
+    @Provides
+    fun providePoiDao(db: RepoDataDatabase) = db.repoDataDao()
+
+    @Singleton
+    @Provides
+    fun provideContext(application: Application): Context = application.applicationContext
 }
 
-//
-//    @Provides
-//    @Singleton
-//    fun provideDatabase(
-//        app: Application,
-//        callback: PoiDatabase.Callback
-//    ) = Room.databaseBuilder(app, PoiDatabase::class.java, "poi_database")
-//        .fallbackToDestructiveMigration()
-//        .addCallback(callback)
-//        .build()
-//    @Provides
-//    fun providePoiDao(db: PoiDatabase) = db.poiDao()
-//
-//    @ApplicationScope
-//    @Provides
-//    @Singleton
-//    fun provideApplicationScope() = CoroutineScope(SupervisorJob())
-//
 
-
-@Retention(AnnotationRetention.RUNTIME)
-@Qualifier
-annotation class ApplicationScope
