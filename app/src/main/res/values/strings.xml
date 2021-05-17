@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">GetRepoInfo</string>
+    <string name="owner_repository"><![CDATA[<owner>/<repository>]]></string>
+    <string name="author_s_name">author’s name</string>
+    <string name="message">message</string>
+    <string name="sha_value">SHA value</string>
+    <string name="get">GET</string>
+    <string name="gitrepoinfo">GitRepoInfo</string>
+    <string name="hist">Hist</string>
 </resources>
