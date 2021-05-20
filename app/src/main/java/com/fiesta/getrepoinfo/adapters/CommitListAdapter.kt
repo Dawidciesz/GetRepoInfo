@@ -25,7 +25,7 @@ class CommitListAdapter() : ListAdapter<Info, CommitListAdapter.CommitViewHolder
         fun bind(info: Info) {
             binding.apply {
                 author.text = info.commit.committer.name
-                message.text = info.message
+                message.text = info.commit.message
                 sha.text = info.sha
             }
         }
